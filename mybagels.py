@@ -60,9 +60,22 @@ def getSecretNum():
 
 def getClues(guess, secretNum):
 
-
+    if guess == secretNum:
+        return 'you got it!'
     clues = []
 
+    # need to loop through the guess
+    for i in range(len(guess)):
+        if guess[i] == secretNum[i]:
+            # correct digit in correct place
+            clues.append('Fermi')
+        elif guess[i] in secretNum: # correct digit incorrect place
+            clues.append('Pico')
+    if len(clues) == 0:
+        return 'Bagels'
+    else:
+        #dont sort the clues so there are better guesses
+        return ' '.join(clues)
     
 if __name__ == '__main__':
     main()

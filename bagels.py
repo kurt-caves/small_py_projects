@@ -38,7 +38,7 @@ clues would be Fermi Pico.'''.format(NUM_DIGITS))
             while len(guess) != NUM_DIGITS or not guess.isdecimal():
                 print('Guess #{}: '.format(numGuesses))
                 guess = input('> ')
-
+            
             clues = getClues(guess, secretNum)
             print(clues)
             numGuesses += 1

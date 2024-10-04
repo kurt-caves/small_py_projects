@@ -1,19 +1,16 @@
-import random
-NUM_DIGITS = 3
-numbers = list('0123456789')  # Create a list of digits 0 to 9.
-random.shuffle(numbers)  # Shuffle them into random order.
-print(numbers)
+secretNum = '123'
+guess = '123'
 
-secretNum = ''
-for i in range(NUM_DIGITS):
-    secretNum += str(numbers[i])
-print(secretNum)
+clues = []
 
-nums = [0,1,2,3,4,5,6,7,8,9]
-random.shuffle(nums)
-print(nums)
-sNum = ''
-for i in range(NUM_DIGITS):
-    sNum += str(nums[i])
-
-print(sNum)
+for i, char in enumerate(guess):
+    if guess[i] == secretNum[i]:
+        clues.append('Fermi')
+    elif char in secretNum:
+        clues.append('Pico')
+        
+if clues == []:
+    clues.append('Bagels')
+            
+print(', '.join(clues))
+    
